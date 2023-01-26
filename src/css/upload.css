@@ -1,0 +1,52 @@
+#upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#img-add-btn {
+  cursor: pointer;
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: dodgerblue;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#img-add-btn:disabled {
+  background: lightgrey;
+  cursor: not-allowed;
+}
+
+#input-title {
+  padding-left: 12px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid gray;
+}
+
+#textarea-content {
+  height: 200px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid gray;
+}
+
+#submit-btn {
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: dodgerblue;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#submit-btn:disabled {
+  cursor: not-allowed;
+  background-color: lightgrey;
+}

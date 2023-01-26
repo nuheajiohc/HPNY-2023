@@ -1,16 +1,23 @@
 import { $ } from "./utils/dom.js";
-import { RoutePage } from "./router.js";
+import { Route } from "./router.js";
+import handleUpload from "./handler/uploadHandler.js";
+import handleDetailPost from "./handler/detailPostHandler.js";
+import handleEdit from "./handler/editHandler.js";
 
 function App() {
-  this.init = () => {
-    $("nav").innerHTML = `
-      <a href="/" id="backIcon-wrapper" class="hidden">
-        <img src="../src/images/left-arrow.png" />
-      </a>
-      <a href="/" id="nav-title">HPNY 2023</a>`;
-  };
-  RoutePage();
+  const route = new Route();
+  document.addEventListener("DOMContentLoaded", route.loadPage);
+
+  document.addEventListener("click", e => {
+    e.preventDefault();
+    if (document.getElementById("home-section")) return route.routePage(e);
+    if (document.getElementById("upload-section")) return handleUpload(e);
+    if (document.getElementById("detail-section")) return handleDetailPost(e);
+    if (document.getElementById("edit-section")) return handleEdit(e);
+  });
+
+  document.addEventListener("keyup", handleUpload);
+  addEventListener("popstate", route.loadPage);
 }
 
 const app = new App();
-app.init();
