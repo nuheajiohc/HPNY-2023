@@ -1,6 +1,7 @@
 import Home from "./pages/home.js";
 import UploadPost from "./pages/uploadPost.js";
 import DetailPost from "./pages/detailPost.js";
+import PageNotFound from "./pages/404.js";
 
 export function Route() {
   this.PageMap = {
@@ -12,16 +13,18 @@ export function Route() {
       const uploadPost = new UploadPost();
       uploadPost.render();
     },
-    // 404: () => {},
+    404: PageNotFound,
   };
 
   this.loadPage = async () => {
     let location = window.location.pathname;
-    // PageMap[location]() || PageMap[404]();
     if (/\/[0-9]+$/.test(location)) {
       const detailPost = new DetailPost(location);
       await detailPost.render(location);
       return;
+    }
+    if (!this.PageMap[location]) {
+      this.PageMap[404]();
     }
     this.PageMap[location]();
   };
