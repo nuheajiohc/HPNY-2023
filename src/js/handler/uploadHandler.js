@@ -4,6 +4,7 @@ import imageApi from "../api/Image.js";
 import submitPostApi from "../api/submitPost.js";
 
 let imageUrl;
+let clickedImageAdd = false;
 export default async function handleUpload(e) {
   if (window.location.pathname !== "/upload") return;
   if (e.target.closest("a")) {
@@ -13,10 +14,10 @@ export default async function handleUpload(e) {
     return;
   }
 
-  if (e.target.id === "img-add-btn") {
-    $("#img-add-btn").innerText = "이미지 추가 완료";
-    $("#img-add-btn").disabled = true;
+  if (e.target.id === "img-add-wrapper") {
     imageUrl = await imageApi();
+    $("#img-add-wrapper").innerHTML = `<img src=${imageUrl}>`;
+    clickedImageAdd = true;
   }
 
   if (e.target.id === "submit-btn") {
@@ -31,8 +32,7 @@ export default async function handleUpload(e) {
   }
 
   const isPossibleSubmit =
-    $("#input-title").value &&
-    $("#textarea-content").value &&
-    $("#img-add-btn").disabled;
+    $("#input-title").value && $("#textarea-content").value && clickedImageAdd;
+
   $("#submit-btn").disabled = !isPossibleSubmit;
 }

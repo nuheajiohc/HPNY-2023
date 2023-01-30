@@ -11,7 +11,7 @@ export default function UploadPost() {
 `;
     $("section").setAttribute("id", "upload-section");
     $("section").innerHTML = `
-      <button id="img-add-btn">랜덤 이미지 추가하기</button>
+      <div id="img-add-wrapper">랜덤 이미지 추가하기</div>
       <input placeholder="글 제목을 작성해주세요." id="input-title" maxlength="50">
       <textarea placeholder="글 내용을 작성해주세요." id="textarea-content" maxlength="500"></textarea>
       <button id="submit-btn" disabled="">글 작성하기</button>

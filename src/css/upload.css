@@ -4,19 +4,27 @@
   gap: 12px;
 }
 
-#img-add-btn {
+#img-add-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
   cursor: pointer;
-  height: 60px;
-  border: none;
+  border: 1px solid #e2e2e2;
   border-radius: 12px;
-  font-size: 16px;
-  color: white;
-  background-color: dodgerblue;
   font-weight: 700;
   font-size: 20px;
+  color: #e2e2e2;
 }
 
-#img-add-btn:disabled {
+#img-add-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+#img-add-wrapper:disabled {
   background: lightgrey;
   cursor: not-allowed;
 }
