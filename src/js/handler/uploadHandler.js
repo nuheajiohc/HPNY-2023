@@ -1,7 +1,7 @@
 import { Route } from "../router.js";
 import { $ } from "../utils/dom.js";
-import imageApi from "../api/Image.js";
-import submitPostApi from "../api/submitPost.js";
+import imageApi from "../api/imageApi.js";
+import PostApi from "../api/postApi.js";
 
 let imageUrl;
 let clickedImageAdd = false;
@@ -21,7 +21,8 @@ export default async function handleUpload(e) {
   }
 
   if (e.target.id === "submit-btn") {
-    await submitPostApi(
+    const postApi = new PostApi();
+    await postApi.addPost(
       $("#input-title").value,
       $("#textarea-content").value,
       imageUrl,

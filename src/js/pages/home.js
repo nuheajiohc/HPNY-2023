@@ -1,5 +1,5 @@
 import { $ } from "../utils/dom.js";
-import postListApi from "../api/postList.js";
+import PostApi from "../api/postApi.js";
 
 export default function Home() {
   document.title = "HPNY 2023";
@@ -21,7 +21,8 @@ export default function Home() {
 
   const updatePostList = async () => {
     let template = "";
-    const postList = await postListApi();
+    const postApi = new PostApi();
+    const postList = await postApi.getPostList();
     postList.forEach(post => {
       const { postId, title, content, image } = post;
       template += `

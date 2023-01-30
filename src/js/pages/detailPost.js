@@ -1,5 +1,5 @@
 import { $ } from "../utils/dom.js";
-import detailPostApi from "../api/detailPost.js";
+import PostApi from "../api/postApi.js";
 
 export default class DetailPost {
   constructor() {
@@ -7,7 +7,8 @@ export default class DetailPost {
   }
 
   async render(postNumber) {
-    const { post, comments } = await detailPostApi(postNumber);
+    const postApi = new PostApi();
+    const { post, comments } = await postApi.getPost(postNumber);
     $("#nav").innerHTML = `
     <a href="/" id="backIcon-wrapper">
       <img src="../src/images/left-arrow.png" />

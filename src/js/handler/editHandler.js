@@ -1,5 +1,5 @@
 import { $ } from "../utils/dom.js";
-import postEditApi from "../api/editPost.js";
+import PostApi from "../api/postApi.js";
 import { Route } from "../router.js";
 
 export default async function handleEdit(e) {
@@ -13,7 +13,8 @@ export default async function handleEdit(e) {
   const contentValue = $("#textarea-edit-content").value;
   const imgUrl = $("#img-wrapper img").src;
   if (e.target.id === "edit-btn") {
-    await postEditApi(
+    const postApi = new PostApi();
+    await postApi.editPost(
       window.location.pathname,
       titleValue,
       contentValue,
