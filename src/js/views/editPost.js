@@ -1,17 +1,13 @@
 import { $ } from "../utils/dom.js";
+import header from "./header.js";
 
 export default class EditPost {
   constructor() {
     document.title = "HPNY 2023 | edit post";
+    header();
   }
 
   render(title, content, imgUrl) {
-    $("#nav").innerHTML = `
-    <a href="/" id="backIcon-wrapper">
-      <img src="../src/images/left-arrow.png" />
-    </a>
-    <a href="/" id="nav-title">HPNY 2023</a>
-`;
     $("section").setAttribute("id", "edit-section");
     $("section").innerHTML = `
       <div id="img-wrapper"><img src=${imgUrl}/></div>

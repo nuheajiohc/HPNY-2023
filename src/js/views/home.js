@@ -27,7 +27,7 @@ export default function Home() {
       const { postId, title, content, image } = post;
       template += `
       <li id="post">
-        <a href="/${postId}">
+        <a href="post/${postId}">
           <img src="${image}">
           <div>
             <strong>${title}</strong>
@@ -39,3 +39,12 @@ export default function Home() {
     return template;
   };
 }
+
+// class Home{
+//   constructor(){
+//     document.title = "HPNY 2023";
+//   }
+//   view(){
+
+//   }
+// }
