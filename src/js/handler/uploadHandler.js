@@ -14,9 +14,9 @@ export default async function handleUpload(e) {
     return;
   }
 
-  if (e.target.id === "img-add-wrapper") {
+  if (e.target.id === "img-add") {
     imageUrl = await imageApi();
-    $("#img-add-wrapper").innerHTML = `<img src=${imageUrl}>`;
+    $("#img-add").innerHTML = `<img src=${imageUrl}>`;
     clickedImageAdd = true;
   }
 

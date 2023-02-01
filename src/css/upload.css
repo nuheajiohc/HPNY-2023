@@ -4,7 +4,7 @@
   gap: 12px;
 }
 
-#img-add-wrapper {
+#img-add {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,14 +17,14 @@
   color: #e2e2e2;
 }
 
-#img-add-wrapper img {
+#img-add img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 12px;
 }
 
-#img-add-wrapper:disabled {
+#img-add:disabled {
   background: lightgrey;
   cursor: not-allowed;
 }
