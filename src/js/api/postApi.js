@@ -13,7 +13,7 @@ export default class PostApi {
 
   async getPost(postNumber) {
     try {
-      const response = await fetch("http://43.201.103.199" + postNumber);
+      const response = await fetch(BASE_URL + postNumber);
       const { data } = await response.json();
       return data;
     } catch (err) {
@@ -42,7 +42,7 @@ export default class PostApi {
 
   async deletePost(postHref) {
     try {
-      await fetch("http://43.201.103.199" + postHref, { method: "DELETE" });
+      await fetch(BASE_URL + postHref, { method: "DELETE" });
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +50,7 @@ export default class PostApi {
 
   async editPost(postNumber, titleValue, contentValue, imgUrl) {
     try {
-      await fetch("http://43.201.103.199" + "/post/" + postNumber, {
+      await fetch(BASE_URL + "/post/" + postNumber, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
