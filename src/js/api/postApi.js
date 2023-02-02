@@ -2,44 +2,67 @@ import { BASE_URL, END_POINT } from "../utils/url.js";
 
 export default class PostApi {
   async getPostList() {
-    const response = await fetch(BASE_URL + "/" + END_POINT.POST_LIST);
-    const { data } = await response.json();
-    return data.posts;
+    try {
+      const response = await fetch(BASE_URL + END_POINT.POST_LIST);
+      const { data } = await response.json();
+      return data.posts;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async getPost(postNumber) {
-    const response = await fetch(BASE_URL + "/post" + postNumber);
-    const { data } = await response.json();
-    return data;
+    try {
+      const response = await fetch("http://43.201.103.199" + postNumber);
+      const { data } = await response.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async addPost(titleValue, contentValue, imgUrl) {
-    await fetch(BASE_URL + "/" + END_POINT.ADD_POST, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: titleValue,
-        content: contentValue,
-        image: imgUrl,
-      }),
-    });
+    try {
+      const response = await fetch(BASE_URL + END_POINT.ADD_POST, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: titleValue,
+          content: contentValue,
+          image: imgUrl,
+        }),
+      });
+      if (response.status === 400) {
+        throw new Error("중복 게시물은 작성할 수 없습니다.");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  async deletePost(postNumber) {
-    return fetch(BASE_URL + "/post" + postNumber, { method: "DELETE" });
+  async deletePost(postHref) {
+    try {
+      await fetch("http://43.201.103.199" + postHref, { method: "DELETE" });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async editPost(postNumber, titleValue, contentValue, imgUrl) {
-    return fetch(BASE_URL + "/post" + postNumber, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: titleValue,
-        content: contentValue,
-        image: imgUrl,
-      }),
-    }).then(res => res);
+    try {
+      await fetch("http://43.201.103.199" + "/post/" + postNumber, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleValue,
+          content: contentValue,
+          image: imgUrl,
+        }),
+      }).then(res => res);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

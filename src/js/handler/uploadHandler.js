@@ -6,15 +6,7 @@ import PostApi from "../api/postApi.js";
 let imageUrl;
 let clickedImageAdd = false;
 export default async function handleUpload(e) {
-  if (window.location.pathname !== "/upload") return;
-  if (e.target.closest("a")) {
-    window.history.pushState({}, "", e.target.closest("a").href);
-    const route = new Route();
-    route.loadPage();
-    return;
-  }
-
-  if (e.target.id === "img-add") {
+  if (e.target.id === "img-add" && !clickedImageAdd) {
     imageUrl = await imageApi();
     $("#img-add").innerHTML = `<img src=${imageUrl}>`;
     clickedImageAdd = true;
@@ -22,18 +14,14 @@ export default async function handleUpload(e) {
 
   if (e.target.id === "submit-btn") {
     const postApi = new PostApi();
-    await postApi.addPost(
-      $("#input-title").value,
-      $("#textarea-content").value,
-      imageUrl,
-    );
+    await postApi.addPost($("#input-title").value, $("#textarea-content").value, imageUrl);
     window.history.pushState({}, "", "/");
     const route = new Route();
     route.loadPage();
+    clickedImageAdd = false;
+    return;
   }
 
-  const isPossibleSubmit =
-    $("#input-title").value && $("#textarea-content").value && clickedImageAdd;
-
+  const isPossibleSubmit = $("#input-title").value && $("#textarea-content").value && clickedImageAdd;
   $("#submit-btn").disabled = !isPossibleSubmit;
 }

@@ -1,28 +1,26 @@
 import { $ } from "../utils/dom.js";
 import PostApi from "../api/postApi.js";
+import header from "./header.js";
 
 export default class DetailPost {
   constructor() {
     document.title = "HPNY 2023 | detailPost";
+    header();
   }
 
   async render(postNumber) {
     const postApi = new PostApi();
     const { post, comments } = await postApi.getPost(postNumber);
-    $("#nav").innerHTML = `
-    <a href="/" id="backIcon-wrapper">
-      <img src="../src/images/left-arrow.png" />
-    </a>
-    <a href="/" id="nav-title">HPNY 2023</a>`;
+    const createTime = new Date(post.createdAt).toLocaleString();
     $("section").setAttribute("id", "detail-section");
     $("section").innerHTML = `
       <article id="post-article">
       <img src=${post.image} id="post-img">
         <strong>${post.title}</strong>
-        <span>${post.createdAt.slice(0, 10)}</span>
+        <span>${createTime}</span>
         <p>${post.content}</p>
         <div id="post-btn-wrap">
-        <button id="post-update-btn">수정 </button>
+        <button id="post-update-btn" data-post-id="${post.postId}">수정 </button>
         <button id="post-delete-btn">삭제 </button>
         </div>
       </article>
@@ -36,7 +34,7 @@ export default class DetailPost {
       </div> `;
     comments.forEach(comment => {
       $("#comment-list").innerHTML += `
-          <li id="comment" data-id=${comment.commentId}>
+          <li id="comment" data-comment-id="${comment.commentId}">
             <p>${comment.content}</p>
             <button id="comment-delete-btn">삭제</button>
           </li>

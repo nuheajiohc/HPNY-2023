@@ -10,8 +10,8 @@ export default class EditPost {
   render(title, content, imgUrl) {
     $("section").setAttribute("id", "edit-section");
     $("section").innerHTML = `
-      <div id="img-wrapper"><img src=${imgUrl}/></div>
-      <input placeholder="글 제목을 작성해주세요." id="input-edit-title" maxlength="50" value=${title}>
+      <div id="img-add"><img src=${imgUrl}/></div>
+      <input placeholder="글 제목을 작성해주세요." id="input-edit-title" maxlength="50" value="${title}">
       <textarea placeholder="글 내용을 작성해주세요." id="textarea-edit-content" maxlength="500">${content}</textarea>
       <button id="edit-btn">글 수정하기</button>
     `;

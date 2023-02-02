@@ -14,7 +14,7 @@ export default class Home {
     const postList = await postApi.getPostList();
     return postList.reduce((template, post) => {
       const { postId, title, content, image } = post;
-      template =
+      return (
         `
       <li id="post">
         <a href="post/${postId}">
@@ -25,8 +25,8 @@ export default class Home {
           </div>
         </a>
       </li>
-      ` + template;
-      return template;
+      ` + template
+      );
     }, "");
   }
 

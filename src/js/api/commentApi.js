@@ -1,8 +1,8 @@
-import { BASE_URL } from "../utils/url.js";
+import { BASE_URL, END_POINT } from "../utils/url.js";
 
 export default class CommentApi {
   async addComment(postNumber, contentValue) {
-    return await fetch(BASE_URL + "/comment" + postNumber, {
+    return await fetch(BASE_URL + END_POINT.COMMENT + postNumber.split("/")[2], {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -12,7 +12,7 @@ export default class CommentApi {
   }
 
   async deleteComment(commentId) {
-    return await fetch(BASE_URL + "/comment/" + commentId, {
+    return await fetch(BASE_URL + END_POINT.COMMENT + commentId, {
       method: "DELETE",
     }).then(res => res.json());
   }
