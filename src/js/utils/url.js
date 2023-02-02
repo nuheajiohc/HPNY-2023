@@ -1,5 +1,5 @@
-// const BASE_URL = `http://43.201.103.199`;
-const BASE_URL = "api"; //배포용
+const BASE_URL = `http://43.201.103.199`;
+// const BASE_URL = "api"; //배포용
 const END_POINT = {
   POST_LIST: "/posts",
   ADD_POST: "/post",

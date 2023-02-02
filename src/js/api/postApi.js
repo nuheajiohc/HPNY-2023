@@ -15,7 +15,7 @@ export default class PostApi {
     try {
       const response = await fetch(BASE_URL + postNumber);
       const { data } = await response.json();
-      return data;
+      return await data;
     } catch (err) {
       console.log(err);
     }
