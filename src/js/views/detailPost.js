@@ -10,8 +10,7 @@ export default class DetailPost {
 
   async render(postNumber) {
     const postApi = new PostApi();
-    const postInfo = await postApi.getPost(postNumber);
-    const { post, comments } = await postInfo;
+    const { post, comments } = await postApi.getPost(postNumber);
     const createTime = new Date(post.createdAt).toLocaleString();
     $("section").setAttribute("id", "detail-section");
     $("section").innerHTML = `
