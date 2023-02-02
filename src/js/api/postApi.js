@@ -1,4 +1,4 @@
-import { BASE_URL, END_POINT } from "../utils/url.js";
+import { BASE_URL, END_POINT } from "/src/js/utils/url.js";
 
 export default class PostApi {
   async getPostList() {
