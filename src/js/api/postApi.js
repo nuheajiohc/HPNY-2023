@@ -4,8 +4,10 @@ export default class PostApi {
   async getPostList() {
     try {
       const response = await fetch(BASE_URL + END_POINT.POST_LIST);
-      const { data } = await response.json();
-      return data.posts;
+      // const { data } = await response.json();
+      const json = await response.json();
+      return json.data.posts;
+      // return data.posts;
     } catch (err) {
       console.log(err);
     }
