@@ -1,4 +1,5 @@
 #nav {
+  width: inherit;
   display: flex;
   position: sticky;
   top: 0;
