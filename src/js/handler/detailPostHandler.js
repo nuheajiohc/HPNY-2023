@@ -1,7 +1,7 @@
-import { $ } from "../utils/dom.js";
-import { Route } from "../router.js";
-import CommentApi from "../api/commentApi.js";
-import PostApi from "../api/postApi.js";
+import { $ } from "/src/js/utils/dom.js";
+import { Route } from "/src/js/router.js";
+import CommentApi from "/src/js/api/commentApi.js";
+import PostApi from "/src/js/api/postApi.js";
 
 export default async function handleDetailPost(e) {
   const route = new Route();

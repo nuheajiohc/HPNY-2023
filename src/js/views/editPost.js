@@ -1,5 +1,5 @@
-import { $ } from "../utils/dom.js";
-import header from "./header.js";
+import { $ } from "/src/js/utils/dom.js";
+import header from "/src/js/views/header.js";
 
 export default class EditPost {
   constructor() {

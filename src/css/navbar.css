@@ -13,12 +13,6 @@
   background-color: white;
 }
 
-@media (max-width: 768px) {
-  .sticky {
-    width: 100%;
-  }
-}
-
 #backIcon-wrapper {
   display: flex;
   height: 40%;

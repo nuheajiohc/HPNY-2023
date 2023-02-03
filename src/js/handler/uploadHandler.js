@@ -1,7 +1,7 @@
-import { Route } from "../router.js";
-import { $ } from "../utils/dom.js";
-import imageApi from "../api/imageApi.js";
-import PostApi from "../api/postApi.js";
+import { Route } from "/src/js/router.js";
+import { $ } from "/src/js/utils/dom.js";
+import imageApi from "/src/js/api/imageApi.js";
+import PostApi from "/src/js/api/postApi.js";
 
 let imageUrl;
 let clickedImageAdd = false;

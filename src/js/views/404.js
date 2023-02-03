@@ -1,4 +1,4 @@
-import { $ } from "../utils/dom.js";
+import { $ } from "/src/js/utils/dom.js";
 
 export default function PageNotFound() {
   $("body").innerHTML = `

@@ -1,9 +1,9 @@
-import Home from "./views/home.js";
-import UploadPost from "./views/uploadPost.js";
-import DetailPost from "./views/detailPost.js";
-import PageNotFound from "./views/404.js";
-import EditPost from "./views/editPost.js";
-import PostApi from "./api/postApi.js";
+import Home from "/src/js/views/home.js";
+import UploadPost from "/src/js/views/uploadPost.js";
+import DetailPost from "/src/js/views/detailPost.js";
+import PageNotFound from "/src/js/views/404.js";
+import EditPost from "/src/js/views/editPost.js";
+import PostApi from "/src/js/api/postApi.js";
 
 export function Route() {
   this.loadPage = async () => {

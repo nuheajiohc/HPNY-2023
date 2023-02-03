@@ -1,8 +1,8 @@
-import { Route } from "./router.js";
-import handleUpload from "./handler/uploadHandler.js";
-import handleDetailPost from "./handler/detailPostHandler.js";
-import handleEdit from "./handler/editHandler.js";
-import { $ } from "./utils/dom.js";
+import { Route } from "/src/js/router.js";
+import handleUpload from "/src/js/handler/uploadHandler.js";
+import handleDetailPost from "/src/js/handler/detailPostHandler.js";
+import handleEdit from "/src/js/handler/editHandler.js";
+import { $ } from "/src/js/utils/dom.js";
 
 function App() {
   const route = new Route();

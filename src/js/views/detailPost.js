@@ -1,6 +1,6 @@
-import { $ } from "../utils/dom.js";
-import PostApi from "../api/postApi.js";
-import header from "./header.js";
+import { $ } from "/src/js/utils/dom.js";
+import PostApi from "/src/js/api/postApi.js";
+import header from "/src/js/views/header.js";
 
 export default class DetailPost {
   constructor() {
