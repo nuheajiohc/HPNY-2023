@@ -6,3 +6,4 @@
 
 /edit/api/* http://43.201.103.199/:splat 200
 /edit/api/* http://43.201.103.199/:splat 201
+/* / 200
