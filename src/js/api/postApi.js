@@ -8,7 +8,7 @@ export default class PostApi {
   }
 
   async getPost(postNumber) {
-    const response = await fetch("/" + BASE_URL + postNumber);
+    const response = await fetch(BASE_URL + postNumber);
     const { data } = await response.json();
     return await data;
   }
