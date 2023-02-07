@@ -2,7 +2,7 @@ import { BASE_URL, END_POINT } from "/src/js/utils/url.js";
 
 export default class PostApi {
   async getPostList() {
-    const response = await fetch(BASE_URL + END_POINT.POST_LIST);
+    const response = await fetch("/" + BASE_URL + END_POINT.POST_LIST);
     const { data } = await response.json();
     return data.posts;
   }
@@ -14,7 +14,7 @@ export default class PostApi {
   }
 
   async addPost(titleValue, contentValue, imgUrl) {
-    const response = await fetch(BASE_URL + END_POINT.ADD_POST, {
+    await fetch("/" + BASE_URL + END_POINT.ADD_POST, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -26,11 +26,11 @@ export default class PostApi {
   }
 
   async deletePost(postHref) {
-    await fetch(BASE_URL + postHref, { method: "DELETE" });
+    await fetch("/" + BASE_URL + postHref, { method: "DELETE" });
   }
 
   async editPost(postNumber, titleValue, contentValue, imgUrl) {
-    await fetch(BASE_URL + "/post/" + postNumber, {
+    await fetch("/" + BASE_URL + "/post/" + postNumber, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
