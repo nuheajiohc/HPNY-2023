@@ -1,6 +1,6 @@
 <div align=center> 
 
-# ** VanillaJS로 신년메시지 주고받는 사이트를 SPA 로 만들기 **
+# ** VanillaJS로 신년메시지 주고받는 SPA 사이트 만들기 **
 [넘블 챌린지](https://www.numble.it/501cc258-649f-4c73-b64b-bb4fea000640)
 
 <img src="https://user-images.githubusercontent.com/113998025/217253774-21d609d7-5243-494c-8770-364616e0716a.png" height=400>
